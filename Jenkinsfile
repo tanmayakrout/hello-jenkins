@@ -10,23 +10,21 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building project...'
-                sh 'echo "Hello Jenkins Build" > hello.txt'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "echo Hello Jenkins Build > hello.txt"'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                sh 'cat hello.txt'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "cat hello.txt"'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                sh './deploy.sh'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe" deploy.sh'
             }
         }
+
     }
 }
