@@ -1,30 +1,24 @@
 pipeline {
-    agent any
-
+    agent any // Run on any available build machine
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/tanmayakrout/hello-jenkins.git'
+                // checkout scm
             }
         }
-
-        stage('Build') {
+        stage('Build & Test Docker') {
             steps {
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "echo Hello Jenkins Build > hello.txt"'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe" ./build.sh' //sh for Linux and bat for Windows
             }
         }
-
-        stage('Test') {
-            steps {
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "cat hello.txt"'
-            }
+    }
+    post {
+        success {
+            echo "Docker build & run successful!"
         }
-
-        stage('Deploy') {
-            steps {
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" deploy.sh'
-            }
+        failure {
+            echo "Something went wrong."
         }
-
     }
 }
