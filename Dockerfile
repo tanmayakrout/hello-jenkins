@@ -5,11 +5,10 @@ FROM ubuntu:22.04
 WORKDIR /app
 
 # Copy your script and any files
-COPY deploy.sh /app/deploy.sh
-COPY hello.txt /app/hello.txt
+COPY start.sh /app/start.sh
 
 # Make script executable
-RUN chmod +x /app/deploy.sh
+RUN chmod +x /app/start.sh
 
 # Default command when container starts
-CMD ["/app/deploy.sh"]
+CMD ["/app/start.sh"]
