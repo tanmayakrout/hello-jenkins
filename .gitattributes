@@ -1,5 +1,31 @@
+# --- Line endings ---
+# Shell scripts must always use LF
 *.sh text eol=lf
+
+# Kubernetes manifests
 *.yaml text eol=lf
 *.yml text eol=lf
+
+# Terraform files
 *.tf text eol=lf
+
+# Jenkins pipeline scripts (Groovy)
 *.groovy text eol=lf
+
+# Python scripts
+*.py text eol=lf
+
+# Windows batch files should stay CRLF
+*.bat text eol=crlf
+
+# --- Binary files ---
+# Prevent Git from trying to diff binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.jar binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.exe binary
