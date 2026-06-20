@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-jenkins
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-jenkins
+  template:
+    metadata:
+      labels:
+        app: hello-jenkins
+    spec:
+      containers:
+      - name: hello-jenkins
+        image: tkrout/hello-jenkins:latest   # Updated to your Docker Hub repo
+        imagePullPolicy: Always              # Always pull latest image on deploy
+        ports:
+        - containerPort: 8080
