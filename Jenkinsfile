@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" kubectl apply -f k8s/deployment.yaml'
+                bat 'kubectl apply -f k8s/deployment.yaml'
                 // deployment.yaml defines your Kubernetes Deployment
             }
         }
