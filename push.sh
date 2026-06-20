@@ -2,7 +2,7 @@
 set -e
 
 # Variables
-IMAGE_NAME="tanmayakrout/hello-jenkins"   # Replace with your actual Docker Hub repo
+IMAGE_NAME="tkrout/hello-jenkins"   # Replace with your actual Docker Hub repo
 TAG="${BUILD_NUMBER:-latest}"             # Jenkins will pass BUILD_NUMBER, fallback to 'latest'
 
 # Login using Jenkins-injected credentials
